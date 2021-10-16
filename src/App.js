@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { Planet } from "./components";
+import styled from "styled-components";
+import { Stars } from "./assets";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Wrapper>
+      <div className="color-change-3x">
+        <div className="background "></div>
+        <Planet />
+      </div>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  position: relative;
+  .background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url(${Stars}) repeat-x;
+    animation: animatedBackground 50s linear infinite;
+  }
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1281px) {
+  }
+`;
 
 export default App;
