@@ -58,7 +58,7 @@ function Planet() {
           classNames="fade"
         >
           <Tabs currentColor={currentColor} className="focus-in-expand-fwd">
-            <div label="Overview">
+            <section label="Overview">
               <div className="planet-info   ">
                 <h1>{name}</h1>
 
@@ -68,15 +68,17 @@ function Planet() {
                   <a href={overview.source} target="_blank" rel="noreferrer">
                     Wikipedia
                   </a>
-                  <img src={SourceLink} alt="" />
+                  <img src={SourceLink} alt="arrow pointing up right" />
                 </p>
               </div>
               <div className="planet-image ">
-                <img src={images.planet} alt="" />
+                <figure>
+                  <img src={images.planet} alt={name} />
+                </figure>
               </div>
-            </div>
+            </section>
 
-            <div label="Structure">
+            <section label="Structure">
               <div className="planet-info">
                 <h1>{name}</h1>
                 <p className="focus-in-expand-fwd">{structure.content}</p>
@@ -89,11 +91,16 @@ function Planet() {
                 </p>
               </div>
               <div className="planet-image ">
-                <img src={images.internal} alt="" />
+                <figure>
+                  <img
+                    src={images.internal}
+                    alt={`internal structure of ${name}`}
+                  />
+                </figure>
               </div>
-            </div>
+            </section>
 
-            <div label="Surface">
+            <section label="Surface">
               <div className="planet-info">
                 <h1>{name}</h1>
                 <p className="focus-in-expand-fwd">{geology.content}</p>
@@ -106,15 +113,21 @@ function Planet() {
                 </p>
               </div>
               <div className="planet-image ">
-                <img src={images.planet} alt="" />
-                <img className="inner-image" src={images.geology} alt="" />
+                <figure>
+                  <img src={images.planet} alt={`surface geology of ${name}`} />
+                  <img
+                    className="inner-image"
+                    src={images.geology}
+                    alt={`surface of ${name}`}
+                  />
+                </figure>
               </div>
-            </div>
+            </section>
           </Tabs>
         </CSSTransition>
       </SwitchTransition>
 
-      <div className="planet-data">
+      <section className="planet-data">
         <div className="data-item">
           <h4>Rotation Time</h4>
           <SwitchTransition value={value}>
@@ -171,7 +184,7 @@ function Planet() {
             </CSSTransition>
           </SwitchTransition>
         </div>
-      </div>
+      </section>
     </Wrapper>
   );
 }
@@ -198,15 +211,6 @@ const Wrapper = styled.section`
   .fade-enter-active,
   .fade-exit-active {
     transition: opacity 500ms, transform 500ms;
-  }
-
-  @keyframes slide {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-1532px, 0, 0);
-    }
   }
 
   .planet-data {

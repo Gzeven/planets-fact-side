@@ -54,7 +54,9 @@ const Navbar = ({ changePlanet }) => {
                     <div className="hover" style={{ background: color }}></div>
                     {name}
                   </h4>
-                  <img src={Chevron} alt="" />
+                  <figure>
+                    <img src={Chevron} alt="chevron right" />
+                  </figure>
                 </li>
               );
             })}

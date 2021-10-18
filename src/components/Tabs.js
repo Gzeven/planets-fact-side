@@ -272,6 +272,9 @@ const Wrapper = styled.section`
           height: 100%;
           opacity: 1;
         }
+        .mobile {
+          display: none;
+        }
       }
     }
   }
